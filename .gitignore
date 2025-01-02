@@ -1,0 +1,5 @@
+#sync
+config/
+data/
+
+node_modules/

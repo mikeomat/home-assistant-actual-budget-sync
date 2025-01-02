@@ -1,0 +1,11 @@
+name: "Actual Budget Sync"
+description: "Sync categories and transactions between Budgets"
+version: "0.0.1"
+slug: "actual_budget_sync"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386

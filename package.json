@@ -1,0 +1,24 @@
+{
+  "name": "actual-budget-script",
+  "version": "1.0.0",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "ts-node -T src/main.ts"
+  },
+  "dependencies": {
+    "@actual-app/api": "^24.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
