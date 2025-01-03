@@ -16,3 +16,4 @@ jobs:
             --test \
             --all \
             --target . \
+            --docker-hub m1k30mat/ha-actual-budget-sync
