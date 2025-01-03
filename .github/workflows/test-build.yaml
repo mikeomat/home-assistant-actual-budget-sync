@@ -1,6 +1,6 @@
 name: "Test"
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -21,4 +21,4 @@ jobs:
             --test \
             --all \
             --target . \
-            --docker-hub ha-actual-budget-sync
+            --docker-hub m1k30mat/ha-actual-budget-sync:latest
