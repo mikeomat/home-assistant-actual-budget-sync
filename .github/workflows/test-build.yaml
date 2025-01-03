@@ -16,4 +16,3 @@ jobs:
             --test \
             --all \
             --target . \
-            --docker-hub mikeomat1/actual-budget-sync
