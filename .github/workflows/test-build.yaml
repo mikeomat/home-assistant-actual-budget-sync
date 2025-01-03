@@ -16,4 +16,4 @@ jobs:
             --test \
             --all \
             --target . \
-            --docker-hub mikeomat1/actual-budget-sync
+            --docker-hub ghcr.io/mikeomat1/actual-budget-sync
