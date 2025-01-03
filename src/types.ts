@@ -1,5 +1,6 @@
 export type AppConfig = {
     server: ServerConfig
+    scheduleSyncMs: number
     budgets: {
         [key: string]: BudgetConfig
     }

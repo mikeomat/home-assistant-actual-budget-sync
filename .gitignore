@@ -1,5 +1,6 @@
-#sync
+dist/
 config/
 data/
+cache/
 
 node_modules/

@@ -1,18 +1,32 @@
 import * as api from '@actual-app/api';
+import * as dotenv from 'dotenv';
 import * as categories from './categories';
 import * as  transactions from './transactions';
 import { AppConfig } from './types';
 
-const config = require('../config/config.json') as AppConfig;
+dotenv.config();
+
+if (process.env.DISABLE_CONSOLE_LOG) {
+  console.log = function () { }
+}
+
+console.info('Loading config');
+const config = require(process.env.APP_CONFIG_PATH!) as AppConfig;
+
 start();
+
+function start() {
+  console.info('Starting sync ' + Date());
+  synchronize();
+  console.info('Finished sync');
+  console.info('Next sync in ' + config.scheduleSyncMs / 1000 / 60 + ' minutes');
+  setTimeout(start, config.scheduleSyncMs);
+}
 
 async function initialize() {
   await api.init({
-    // Budget data will be cached locally here, in subdirectories for each file.
-    dataDir: './data',
-    // This is the URL of your running server
+    dataDir: './cache',
     serverURL: config.server.url,
-    // This is the password you use to log into the server
     password: config.server.password
   });
 }
@@ -22,7 +36,7 @@ async function shutdown() {
   await api.shutdown();
 }
 
-async function start() {
+async function synchronize() {
   await initialize();
 
   for (const syncConfig of config.sync) {
@@ -42,7 +56,7 @@ async function start() {
       } else {
         console.info('Skipping transactions sync');
       }
-    
+
     } catch (e) {
       console.error(e);
     }
