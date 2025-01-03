@@ -15,11 +15,11 @@ const config = require(process.env.APP_CONFIG_PATH!) as AppConfig;
 
 start();
 
-function start() {
-  console.info('Starting sync ' + Date());
-  synchronize();
+async function start() {
+  console.info(`Starting sync ${Date()}`);
+  await synchronize();
   console.info('Finished sync');
-  console.info('Next sync in ' + config.scheduleSyncMs / 1000 / 60 + ' minutes');
+  console.info(`Next sync in ${config.scheduleSyncMs / 1000 / 60} minutes`);
   setTimeout(start, config.scheduleSyncMs);
 }
 
