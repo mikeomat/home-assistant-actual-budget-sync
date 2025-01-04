@@ -16,6 +16,4 @@ jobs:
             --test \
             --aarch64 \
             --target . \
-            --docker-hub ghcr.io/mikeomat/ha-actual-budget-sync \
-            --docker-user  ${{ secrets.DOCKERHUB_USERNAME }} \
-            --docker-password ${{ secrets.DOCKERHUB_TOKEN }}
+            --docker-hub ghcr.io/mikeomat/ha-actual-budget-sync
